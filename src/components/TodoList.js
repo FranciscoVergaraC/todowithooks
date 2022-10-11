@@ -6,12 +6,10 @@ function TodoList() {
     const [todos, setTodos] = useState([]);
 
     const addTodo = (todo) => {
-        if (!todo.text || /^\s*$/.test(todo.text)){
+        if (!todo.text || /^\s*$/.test(todo.text)){ // Sacado de GH, revisa si el texto esta vacio
             return;
         }
-
         const newTodos = [todo, ...todos]
-        
         setTodos(newTodos);
     }
 
@@ -24,9 +22,7 @@ function TodoList() {
       if (!newValue.text || /^\s*$/.test(newValue.text)){
         return;
       }
-
       setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)))
-
     }
 
     const completeTodo = id => {
